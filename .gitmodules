@@ -1,0 +1,3 @@
+[submodule "skyhookdm-arrow"]
+	path = skyhookdm-arrow
+	url = https://github.com/uccross/skyhookdm-arrow
