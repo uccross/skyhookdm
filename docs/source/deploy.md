@@ -19,13 +19,13 @@
 
 # Installing Ceph and SkyhookDM
 
-1. Execute [this](../scripts/deploy_ceph.sh) script to deploy a Ceph cluster on a set of nodes and to mount CephFS on the client/admin node. For example, on the client node, execute
+1. Execute [this](https://github.com/uccross/skyhookdm/blob/master/scripts/deploy/deploy_ceph.sh) script to deploy a Ceph cluster on a set of nodes and to mount CephFS on the client/admin node. For example, on the client node, execute
 ```bash
 ./deploy_ceph.sh mon1,mon2,mon3 osd1,osd2,osd3 mds1 mgr1
 ```
 where mon1, mon2, osd1, etc. are the internal hostnames of the nodes.
 
-2. Build and install the SkyhookDM CLS plugins and PyArrow (with Skyhook extensions) using [this](../scripts/deploy_skyhook.sh) script. For example,
+2. Build and install the SkyhookDM CLS plugins and PyArrow (with Skyhook extensions) using [this](https://github.com/uccross/skyhookdm/blob/master/scripts/deploy/deploy_skyhook.sh) script. For example,
 ```bash
 ./deploy_skyhook.sh osd1,osd2,osd3
 ```
@@ -44,7 +44,7 @@ cd datasets/
 git lfs pull
 ``` 
 
-2. Create and write a sample dataset to the CephFS mount using [this](../scripts/deploy_data.sh) script by replicating the 128MB Parquet file downloaded in Step 1.
+2. Create and write a sample dataset to the CephFS mount using [this](https://github.com/uccross/skyhookdm/blob/master/scripts/deploy/deploy_data.sh) script by replicating the 128MB Parquet file downloaded in Step 1.
 ```bash
 ./deploy_data.sh datasets/128MB.parquet /mnt/cephfs/dataset 100 134217728
 ```

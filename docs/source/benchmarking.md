@@ -23,13 +23,13 @@
 
 ```bash
 # download the ceph deploy script
-wget https://raw.githubusercontent.com/uccross/skyhookdm-arrow/arrow-master/cpp/src/arrow/adapters/arrow-rados-cls/scripts/deploy_ceph.sh && chmod +x deploy_ceph.sh
+wget https://raw.githubusercontent.com/uccross/skyhookdm/master/scripts/deploy/deploy_ceph.sh && chmod +x deploy_ceph.sh
 
 # download the skyhook deploy script
-wget https://raw.githubusercontent.com/uccross/skyhookdm-arrow/arrow-master/cpp/src/arrow/adapters/arrow-rados-cls/scripts/deploy_skyhook.sh && chmod +x deploy_skyhook.sh
+wget https://raw.githubusercontent.com/uccross/skyhookdm/master/scripts/deploy/deploy_skyhook.sh && chmod +x deploy_skyhook.sh
 
 # download the data deploy script
-wget https://raw.githubusercontent.com/uccross/skyhookdm-arrow/arrow-master/cpp/src/arrow/adapters/arrow-rados-cls/scripts/deploy_data.sh && chmod +x deploy_data.sh
+wget https://raw.githubusercontent.com/uccross/skyhookdm/master/scripts/deploy/deploy_data.sh && chmod +x deploy_data.sh
 ```
 
 2. Execute deploy_ceph script to deploy a Ceph cluster on a set of nodes and to mount CephFS on the client/admin node. On the client node, execute:

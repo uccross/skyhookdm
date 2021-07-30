@@ -34,12 +34,12 @@ docker run -it -v $PWD:/w -w /w --privileged uccross/skyhookdm-arrow:v0.2.0 bash
 
 3. Run the build script.
 ```bash
-./cpp/src/arrow/adapters/arrow-rados-cls/scripts/build.sh
+wget https://github.com/uccross/skyhookdm/blob/master/scripts/deploy/build.sh && ./build.sh
 ```
 
 4. Run the tests script.
 ```bash
-./cpp/src/arrow/adapters/arrow-rados-cls/scripts/test.sh
+wget https://github.com/uccross/skyhookdm/blob/master/scripts/deploy/test.sh ./test.sh
 ```
 
 ## Using Archery
