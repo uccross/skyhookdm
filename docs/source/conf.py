@@ -62,7 +62,3 @@ html_theme_options = {
     'sticky_navigation': True,
     'navigation_depth': -1,
 }
-
-html_context = {
-    'source_url_prefix': 'https://github.com/uccross/skyhookdm-arrow/blob/arrow-master/cpp/src/arrow/adapters/arrow-rados-cls/docs/'
-}
