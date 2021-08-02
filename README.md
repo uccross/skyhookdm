@@ -13,8 +13,9 @@ git clone https://github.com/uccross/arrow
 
 * Run the `ubuntu-cls-demo` step in the docker-compose file. This step will start a single node Ceph cluster inside the container, mount CephFS, put sample data into CephFS, and open an example Jupyter notebook with PyArrow installed.
 ```bash
-cd arrow/
-docker-compose run --service-ports ubuntu-cls-demo
+cd demo/
+docker build -t skyhook-demo .
+docker run -p 8888:8888 --privileged skyhook-demo:latest ./script.sh
 ```
 
 # Installation Instructions
@@ -57,7 +58,7 @@ docker-compose run --service-ports ubuntu-cls-demo
 
 # Development
 
-Check out these [instructions](docs/contributing.md) for setting up a local development environment.
+Check out these [instructions](docs/source/contributing.md) for setting up a local development environment.
 
 # Publications
 
