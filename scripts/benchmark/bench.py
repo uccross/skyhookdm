@@ -50,9 +50,7 @@ if __name__ == "__main__":
     resultfile = str(sys.argv[5])
 
     if fmt == "rpq":
-        format_ = ds.SkyhookFileFormat("pq")
-    elif fmt == "ripc":
-        format_ = ds.SkyhookFileFormat("ipc")
+        format_ = "rados-parquet"
     elif fmt == "pq":
         format_ = "parquet"
     elif fmt == "ipc":
