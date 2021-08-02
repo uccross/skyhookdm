@@ -1,4 +1,4 @@
-## Running instructions
+## Demo running instructions
 
 ```bash
 docker build -t skyhook-demo .
