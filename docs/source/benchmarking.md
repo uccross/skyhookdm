@@ -66,7 +66,7 @@ This will write 1500 of ~16MB Parquet files to `/mnt/cephfs/dataset` using a Cep
 
 6. Optionally, you can also deploy Prometheus and Grafana for monitoring the cluster by following [this](https://github.com/JayjeetAtGithub/prometheus-on-baremetal#readme) guide.
 
-7. Run the [benchmark script](../../scripts/benchmark/bench.py) given below to get some initial benchmarks for SkyhookDM performance while using different row selectivities.
+7. Run the [benchmark script](../../scripts/benchmark/bench.py) to get some initial benchmarks for SkyhookDM performance while using different row selectivities.
 
 ```bash
 python3 bench.py [format(pq/rpq)] [iterations] [file:///path/to/dataset] [workers] [result file]
