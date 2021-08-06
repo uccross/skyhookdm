@@ -19,6 +19,8 @@
 
 # Setting up the development environment
 
+**Note:** Please use the v0.3.0 release from the `release-0.3.0` branch for building and testing SkyhookDM.
+
 ## Using docker
 
 1. Clone the SkyhookDM repository.
