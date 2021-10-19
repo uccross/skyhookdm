@@ -87,7 +87,7 @@ int main() {
   auto fs = GetFileSystemFromUri("file:///mnt/cephfs/dataset_128MB", &path);
   std::vector<std::string> columns;
 
-  auto skyhook_format = GetSkyhookFormat();
+  auto skyhook_format = GetParquetFormat();
   auto dataset = GetDatasetFromPath(fs, skyhook_format, path);
   auto scanner =
       GetScannerFromDataset(dataset, columns, arrow::compute::literal(true), true);
