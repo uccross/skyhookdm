@@ -57,7 +57,7 @@ git checkout $BRANCH
 mkdir -p cpp/release
 cd cpp/release
 
-cmake -DARROW_CLS=ON \
+cmake -DARROW_SKYHOOK=ON \
   -DARROW_PARQUET=ON \
   -DARROW_WITH_SNAPPY=ON \
   -DARROW_WITH_ZLIB=ON \
