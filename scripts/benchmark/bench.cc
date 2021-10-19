@@ -24,8 +24,7 @@ std::shared_ptr<skyhook::SkyhookFileFormat> GetSkyhookFormat() {
       std::make_shared<skyhook::RadosConnCtx>(ceph_config_path, ceph_data_pool,
                                               ceph_user_name, ceph_cluster_name,
                                               ceph_cls_name);
-  EXPECT_OK_AND_ASSIGN(auto format,
-                       skyhook::SkyhookFileFormat::Make(rados_ctx, "parquet"));
+  auto format = skyhook::SkyhookFileFormat::Make(rados_ctx, "parquet").ValueOrDie();
   return format;
 }
 
