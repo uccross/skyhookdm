@@ -44,7 +44,7 @@ mkdir -p ${destination}
 
 for ((i=1 ; i<=${count} ; i++)); do
     uuid=$(uuidgen)
-    filename=${destination}/${uuid}
+    filename=${destination}/${uuid}.parquet
     touch ${filename}
     setfattr -n ceph.file.layout.object_size -v ${stripe} ${filename}
     echo "copying ${source} to ${filename}"
