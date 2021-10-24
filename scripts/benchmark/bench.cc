@@ -12,9 +12,6 @@
 #include "parquet/arrow/writer.h"
 
 std::shared_ptr<skyhook::SkyhookFileFormat> GetSkyhookFormat() {
-  // The constants below should match the parameters with
-  // which the Ceph cluster is configured in integration_skyhook.sh.
-  // Currently, all the default values have been used.
   std::string ceph_config_path = "/etc/ceph/ceph.conf";
   std::string ceph_data_pool = "cephfs_data";
   std::string ceph_user_name = "client.admin";
@@ -40,9 +37,6 @@ std::shared_ptr<arrow::dataset::Dataset> GetDatasetFromDirectory(
   s.recursive = true;
 
   arrow::dataset::FileSystemFactoryOptions options;
-//   options.partitioning = std::make_shared<arrow::dataset::HivePartitioning>(
-//       arrow::schema({arrow::field("payment_type", arrow::int32()),
-//                      arrow::field("VendorID", arrow::int32())}));
   auto factory = arrow::dataset::FileSystemDatasetFactory::Make(
                                          std::move(fs), s, std::move(format), options).ValueOrDie();
 
@@ -84,7 +78,7 @@ std::shared_ptr<arrow::dataset::Scanner> GetScannerFromDataset(
 
 int main() {
   std::string path;
-  auto fs = GetFileSystemFromUri("file:///mnt/cephfs/dataset_128MB", &path);
+  auto fs = GetFileSystemFromUri("file:///mnt/cephfs/dataset", &path);
   std::vector<std::string> columns;
 
   auto skyhook_format = GetSkyhookFormat();
