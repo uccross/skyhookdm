@@ -26,7 +26,7 @@ This will build the plugins as shared libraries and deploy them to the OSD nodes
 
 ```bash
 ./deploy_skyhook.sh node4,node5,node6,node7
-````
+```
 
 4. Download an example Parquet file with NYC Taxi data.
 ```bash
