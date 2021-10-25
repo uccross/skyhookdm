@@ -28,40 +28,29 @@ This will build the plugins as shared libraries and deploy them to the OSD nodes
 ./deploy_skyhook.sh node4,node5,node6,node7
 ````
 
-4. Download a sample dataset from [this](https://github.com/jayjeetc/datasets) repository:
-
+4. Download an example Parquet file with NYC Taxi data.
 ```bash
-apt update
-apt install git-lfs
-git clone https://github.com/jayjeetc/datasets
-cd datasets/
-git lfs pull
-cd ..
+wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/128MB.uncompressed.parquet
 ```
 
-5. Create and write a sample dataset to the CephFS mount by replicating the 16MB Parquet file downloaded in the previous step:
+5. Write a sample dataset to the CephFS mount by replicating the 128MB Parquet file downloaded in the previous step.
 
 ```bash
 ./deploy_data.sh [source file] [destination dir] [no. of copies] [stripe unit]
 ```
 
 For example,
-
 ```bash
-./deploy_data.sh datasets/16MB.parquet /mnt/cephfs/dataset 1500 16777216
+./deploy_data.sh 128MB.uncompressed.parquet /mnt/cephfs/dataset 10 134217728
 ```
 
-This will write 1500 of ~16MB Parquet files to `/mnt/cephfs/dataset` using a CephFS stripe size of 16MB. 
+This will write 10 of ~128MB Parquet files to `/mnt/cephfs/dataset` using a CephFS stripe size of 128MB. 
 
-6. Optionally, you can also deploy Prometheus and Grafana for monitoring the cluster by following [this](https://github.com/JayjeetAtGithub/prometheus-on-baremetal#readme) guide.
-
-7. Run the [benchmark script](../../scripts/benchmark/bench.py) to get some initial benchmarks for SkyhookDM performance while using different row selectivities.
-
+6. Build and run the example client code.
 ```bash
-python3 bench.py [format(pq/rpq)] [iterations] [file:///path/to/dataset] [workers] [result file]
+g++ ../example.cc -larrow_skyhook_client -larrow_dataset -larrow -o example
+export LD_LIBRARY_PATH=/usr/local/lib
+./example file:///mnt/cephfs/dataset
 ```
 
-For example,
-```bash
-python3 bench.py rpq 10 file:///mnt/cephfs/dataset 16 result.json
-```
+You should get a stringified Arrow table as the output.
