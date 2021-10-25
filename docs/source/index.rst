@@ -11,6 +11,5 @@ Welcome to SkyhookDM's documentation!
    :caption: Contents:
 
    architecture
-   benchmarking
    contributing
-   deploy
+   getting_started
