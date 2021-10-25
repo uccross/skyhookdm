@@ -37,22 +37,11 @@ This will build the CLS plugins as shared libraries and deploy them to the OSD n
 
 1. Download some sample Parquet files to the admin node.
 ```bash
-apt update
-apt install git-lfs
-git clone https://github.com/JayjeetAtGithub/datasets
-cd datasets/
-git lfs pull
+wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/128MB.uncompressed.parquet
 ``` 
 
 2. Create and write a sample dataset to the CephFS mount using [this](https://github.com/uccross/skyhookdm/blob/master/scripts/deploy/deploy_data.sh) script by replicating the 128MB Parquet file downloaded in Step 1.
 ```bash
-./deploy_data.sh datasets/128MB.parquet /mnt/cephfs/dataset 100 134217728
+./deploy_data.sh 128MB.uncompressed.parquet /mnt/cephfs/dataset 100 134217728
 ```
 This will write 100 of ~128MB Parquet files to `/mnt/cephfs/dataset` using a CephFS stripe size of 128MB.
-
-3. Write a client script and get started with querying datasets in SkyhookDM. An example script is given below.
-```python
-import pyarrow.dataset as ds
-mydataset = ds.dataset("file:///mnt/cephfs/dataset", format="skyhook")
-print(mydataset.to_table())
-```
