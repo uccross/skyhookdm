@@ -1,43 +1,32 @@
-<!---
-  Licensed to the Apache Software Foundation (ASF) under one
-  or more contributor license agreements.  See the NOTICE file
-  distributed with this work for additional information
-  regarding copyright ownership.  The ASF licenses this file
-  to you under the Apache License, Version 2.0 (the
-  "License"); you may not use this file except in compliance
-  with the License.  You may obtain a copy of the License at
+## Getting started with SkyhookDM
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing,
-  software distributed under the License is distributed on an
-  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  KIND, either express or implied.  See the License for the
-  specific language governing permissions and limitations
-  under the License.
--->
-
-# Benchmarking SkyhookDM
-
-1. Clone the repository
+1. Launch a cluster of VMs/bare-metal nodes, choose one of them as the client node and clone the repository in there.
 ```bash
 git clone https://github.com/uccross/skyhookdm
 cd skyhookdm/scripts/deploy/
 ```
 
-2. Execute `deploy_ceph.sh` script to deploy a Ceph cluster on a set of nodes and to mount CephFS on the client/admin node. On the client node, execute:
+2. Execute the `deploy_ceph.sh` script to deploy a Ceph cluster on a set of nodes and also to mount CephFS on the client node. On the client node, execute:
 
 ```bash
 ./deploy_ceph.sh mon1,mon2,mon3 osd1,osd2,osd3 mds1 mgr1 /dev/sdb 3
 ```
-where mon1, mon2, osd1, etc. are the internal hostnames of the nodes.
+where mon1, mon2, osd1, etc. are the internal hostnames of the nodes. Similarly on CloudLab, you can execute,
 
-3. Build and install the SkyhookDM CLS plugins and PyArrow (with Skyhook extensions):
+```bash
+./deploy_ceph.sh node1,node2,node3 node4,node5,node6,node7 node1 node2 /dev/nvme0n1p4 3
+```
+
+3. Build and install Arrow along with the SkyhookDM object class plugins.
 
 ```bash
 ./deploy_skyhook.sh osd1,osd2,osd3
 ```
-This will build the CLS plugins as shared libraries and deploy them to the OSD nodes.
+This will build the plugins as shared libraries and deploy them to the OSD nodes. On CloudLab, you can do,
+
+```bash
+./deploy_skyhook.sh node4,node5,node6,node7
+````
 
 4. Download a sample dataset from [this](https://github.com/jayjeetc/datasets) repository:
 
