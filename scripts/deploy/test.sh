@@ -31,7 +31,7 @@ pushd ${build_dir}
     # copy the CLS libs to the appropriate locations.
     OBJCLASS_PATH=${build_dir}/lib/rados-classes
     mkdir -p ${OBJCLASS_PATH}
-    cp release/libcls_arrow* ${OBJCLASS_PATH}/
+    cp release/libcls_skyhook* ${OBJCLASS_PATH}/
 
     # cluster wide parameters
     mkdir -p ${test_dir}/log
@@ -123,8 +123,8 @@ EOF
     sleep 2
 
     # run the end-to-end C++ tests
-    TESTS=release/arrow-cls-cls-arrow-test
+    TESTS=release/arrow-skyhook-skyhook-arrow-test
     if [ -f "$TESTS" ]; then
-       release/arrow-cls-cls-arrow-test
+       release/arrow-skyhook-skyhook-arrow-test
     fi
 popd
