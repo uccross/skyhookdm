@@ -25,9 +25,9 @@ if [[ $# -lt 1 ]] ; then
 fi
 
 NODES=$1
-BRANCH=${2:-arrow-master}
+BRANCH=${2:-master}
 DEPLOY_CLS_LIBS=${3:-true}
-BUILD_PYTHON_BINDINGS=${4:-true}
+BUILD_PYTHON_BINDINGS=${4:-false}
 BUILD_JAVA_BINDINGS=${5:-false}
 NPROC=${6:-4}
 
