@@ -1,4 +1,4 @@
-# Getting started with SkyhookDM
+# Getting Started
 
 1. Launch a cluster of VMs/bare-metal nodes, choose one of them as the client node and clone the repository in there.
 ```bash
