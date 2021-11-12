@@ -47,6 +47,7 @@ apt install -y python3 \
 
 if [ ! -d "/tmp/arrow" ]; then
   git clone https://github.com/apache/arrow /tmp/arrow
+  cd /tmp/arrow
   git submodule update --init --recursive
 fi
 
