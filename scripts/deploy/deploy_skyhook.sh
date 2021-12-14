@@ -46,7 +46,7 @@ apt install -y python3 \
                maven
 
 if [ ! -d "/tmp/arrow" ]; then
-  git clone https://github.com/apache/arrow /tmp/arrow
+  git clone --branch arrow-master https://github.com/uccross/skyhookdm-arrow /tmp/arrow
   cd /tmp/arrow
   git submodule update --init --recursive
 fi
