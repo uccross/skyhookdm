@@ -148,7 +148,7 @@ ceph-deploy mgr create $MGR_LIST
 cat >> ceph.conf << EOF
 mon allow pool delete = true
 osd class load list = *
-osd op threads = 16
+osd op threads = 8
 EOF
 
 # deploy the updated Ceph config and restat the MONs for the config to take effect

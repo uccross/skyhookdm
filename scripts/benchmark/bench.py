@@ -37,10 +37,9 @@ def drop_caches():
 def do_scan(fragment, filter_):
     fragment.to_table(filter=filter_, use_threads=False)
 
-
 if __name__ == "__main__":
     if len(sys.argv) < 6:
-        print("usage: ./bench.py <format(pq/rpq)> <iterations> <dataset> <workers> <file>")
+        print("usage: ./bench.py <format(pq/sk)> <iterations> <dataset> <workers> <file>")
         sys.exit(0)
 
     fmt = str(sys.argv[1])
@@ -49,8 +48,8 @@ if __name__ == "__main__":
     workers = int(sys.argv[4])
     resultfile = str(sys.argv[5])
 
-    if fmt == "rpq":
-        format_ = "rados-parquet"
+    if fmt == "sk":
+        format_ = "skyhook"
     elif fmt == "pq":
         format_ = "parquet"
     elif fmt == "ipc":

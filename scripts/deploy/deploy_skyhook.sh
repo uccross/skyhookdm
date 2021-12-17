@@ -81,7 +81,7 @@ if [[ "${BUILD_PYTHON_BINDINGS}" == "true" ]]; then
   export ARROW_HOME=$WORKDIR/dist
   export PYARROW_WITH_DATASET=1
   export PYARROW_WITH_PARQUET=1
-  export PYARROW_WITH_RADOS=1
+  export PYARROW_WITH_SKYHOOK=1
 
   mkdir -p /root/dist/lib
   mkdir -p /root/dist/include
@@ -110,10 +110,9 @@ fi
 if [[ "${BUILD_JAVA_BINDINGS}" == "true" ]]; then
     mkdir -p /tmp/arrow/java/dist
     cp -r /tmp/arrow/cpp/release/release/libarrow_dataset_jni.so* /tmp/arrow/java/dist
-    
+
     mvn="mvn -B -DskipTests -Dcheckstyle.skip -Drat.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
     mvn="${mvn} -T 2C"
-
     cd /tmp/arrow/java
     ${mvn} clean install package -P arrow-jni -pl dataset,format,memory,vector -am -Darrow.cpp.build.dir=/tmp/arrow/cpp/release/release
 fi
