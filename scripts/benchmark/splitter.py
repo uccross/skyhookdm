@@ -58,7 +58,7 @@ class SplittedParquetWriter(object):
         open(filename, 'a').close()
         attribute = "ceph.file.layout.object_size"
         os.system(
-            f"setfattr -n {attribute} -v 134217728 {filename}")
+            f"setfattr -n {attribute} -v {self.chunksize} {filename}")
         pq.write_table(
             table, filename,
             row_group_size=table.num_rows, compression=None
@@ -106,6 +106,6 @@ class SplittedParquetWriter(object):
 
 
 if __name__ == "__main__":
-    chunksize = 4 * 1024 * 1024  # 4MB
+    chunksize = 16 * 1024 * 1024  # 16MB
     writer = SplittedParquetWriter("example.parquet", 'example', chunksize)
     writer.write()
