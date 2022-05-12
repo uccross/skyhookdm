@@ -1,11 +1,12 @@
 import sys
 
 import dask.dataframe as dd
-from dask.distributed import Client
+from dask.distributed import Client, LocalCluster
 
 
 if __name__ == "__main__":
-    client = Client()
+    cluster = LocalCluster(n_workers=4, threads_per_worker=4, memory_limit='64GB')
+    client = Client(cluster)
     print(client)
 
     path = sys.argv[1]
