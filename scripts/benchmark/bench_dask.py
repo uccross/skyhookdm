@@ -1,4 +1,5 @@
 import sys
+import time
 
 import dask.dataframe as dd
 from dask.distributed import Client, LocalCluster
@@ -16,4 +17,8 @@ if __name__ == "__main__":
     print(engine)
 
     df = dd.read_parquet(path, engine=engine)
-    df.compute() 
+    s = time.time()
+    df.compute()
+    e = time.time()
+
+    print(e - s) 
