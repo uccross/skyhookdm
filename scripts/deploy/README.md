@@ -1,6 +1,11 @@
 ## Data S3 bucket 
+```
+wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/16MB.uncompressed.parquet
+```
 
-https://skyhook-ucsc.s3.us-west-1.amazonaws.com/16MB.uncompressed.parquet
+```
+wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/64MB.uncompressed.parquet
+```
 
 ## File count reference
 
