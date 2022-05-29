@@ -4,7 +4,7 @@ wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/16MB.uncompressed.parquet
 ```
 
 ```
-wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/64MB.uncompressed.parquet
+wget https://skyhook-ucsc.s3.us-west-1.amazonaws.com/32MB.uncompressed.parquet
 ```
 
 ## File count reference
