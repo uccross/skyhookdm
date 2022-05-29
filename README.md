@@ -1,4 +1,6 @@
-# skyhookdm
-Parent repository for the SkyhookDM project.
+# SkyhookDM
+Project repository for SkyhookDM
+
+## Other repositories
 
 * Skyhook Utilities: https://github.com/JayjeetAtGithub/skyutil
