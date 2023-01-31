@@ -20,12 +20,12 @@ where mon1, mon2, osd1, etc. are the internal hostnames of the nodes. Similarly 
 3. Build and install Arrow along with the SkyhookDM object class plugins.
 
 ```bash
-./deploy_skyhook.sh osd1,osd2,osd3
+./deploy_skyhook_upstream.sh osd1,osd2,osd3
 ```
 This will build the plugins as shared libraries and deploy them to the OSD nodes. On CloudLab, you can do,
 
 ```bash
-./deploy_skyhook.sh node4,node5,node6,node7
+./deploy_skyhook_upstream.sh node4,node5,node6,node7
 ```
 
 4. Download an example Parquet file with NYC Taxi data.
@@ -48,7 +48,7 @@ This will write 10 of ~128MB Parquet files to `/mnt/cephfs/dataset` using a Ceph
 
 6. Build and run the example client code.
 ```bash
-g++ ../example.cc -larrow_skyhook_client -larrow_dataset -larrow -o example
+g++ -std=c++17 ../example.cc -larrow_skyhook -larrow_dataset -larrow -o example
 export LD_LIBRARY_PATH=/usr/local/lib
 ./example file:///mnt/cephfs/dataset
 ```
