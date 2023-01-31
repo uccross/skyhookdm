@@ -5,6 +5,7 @@
 #include "arrow/dataset/dataset.h"
 #include "arrow/dataset/file_base.h"
 #include "arrow/filesystem/api.h"
+#include "arrow/api.h"
 #include "arrow/io/api.h"
 #include "arrow/util/checked_cast.h"
 #include "arrow/util/iterator.h"
